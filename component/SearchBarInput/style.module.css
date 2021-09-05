@@ -1,0 +1,28 @@
+.container{
+    display: flex;
+    background-color: white;
+    width: 45%;
+    border-radius: 15px;
+    overflow: hidden;
+}
+
+
+.container input {
+    outline: none;
+    border: none;
+    width: 100%;
+    font-size: 18px;
+    margin-left: 15px;
+}
+
+ 
+
+
+@media screen and (max-width:500px) {
+           .container {
+               width: 100%;
+               margin: 0 !important;
+               border-radius: 0;
+           }
+}
+

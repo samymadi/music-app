@@ -1,0 +1,12 @@
+:root{
+    --backgroundColor : #121216;
+}
+
+body{
+    margin: 0;
+    padding: 0;
+}
+
+* {
+    font-family: "Cabin";
+}
