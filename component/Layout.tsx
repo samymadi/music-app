@@ -4,7 +4,7 @@ import Head from 'next/head';
 
 
 interface Props {
-        children:JSX.Element[]
+        children:JSX.Element[] | JSX.Element
         title?:string
         className?:string
 }

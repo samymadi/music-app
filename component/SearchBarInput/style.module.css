@@ -2,8 +2,13 @@
     display: flex;
     background-color: white;
     width: 45%;
+    max-width: 500px;
     border-radius: 15px;
     overflow: hidden;
+    width: 50px;
+    transition: width 350ms ease-in;
+    transform-origin: right;
+    
 }
 
 
@@ -13,9 +18,24 @@
     width: 100%;
     font-size: 18px;
     margin-left: 15px;
+    display: none;
 }
 
- 
+
+
+.input_visible{
+    display: block !important;
+}
+
+
+.container_animate {
+    width: 45%;
+}
+
+
+
+
+
 
 
 @media screen and (max-width:500px) {

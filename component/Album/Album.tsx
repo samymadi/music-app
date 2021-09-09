@@ -20,13 +20,14 @@ interface Props {
         songs:number,
         link :string,
         cover:string,
-        artist:string
+        artist:string,
+        artist_id:string
     }
 }
 
 function Album(props: Props) {  
 
-    const {title,songs,link,cover,artist} = props.album;
+    const {artist_id,title,songs,link,cover,artist} = props.album;
     return (
         <div className={container}>
                     <img src={cover}  alt={title} />
@@ -36,7 +37,7 @@ function Album(props: Props) {
                    
                     <div className={content}>
                             <h3>{title}</h3>
-                            <p>Artist : {artist} </p>
+                            <p style={{textDecoration:'underline'}} >  <Link href={`/artist/${artist_id}`} ><a>{artist}</a></Link>  </p>
                             <p>Songs: {songs}</p>
                             <p>Release :  1 jun 2000 </p>
                     </div>

@@ -16,10 +16,10 @@ const {container,search_bar,album_section} = styles
 
 
 interface Props {
-  albums : any[]
+  albums : any[] | null
 }
 
-const Home: NextPage = ({albums}) => {
+const Home: NextPage<Props> = ({albums}) => {
 
 
 
@@ -31,7 +31,7 @@ const Home: NextPage = ({albums}) => {
         </header>
 
         <section className={album_section}>
-         {albums.map((album:any)=>
+         { albums && albums.map((album:any)=>
          <Album key={album.id} album={album} />
          )}
         </section>
@@ -47,30 +47,34 @@ export default Home
 
 
 
-export const getStaticProps  = async()=>{
+export const getStaticProps  = async ()=>{
 
 
-  const albums = await axios.get('https://api.deezer.com/search/album/?q=b&index=0&limit=100&')
-  .then(res=>{
-    if(res.status == 200)
-      return res.data.data.map((element:any)=>({
+
+
+    const res = await axios.get('https://api.deezer.com/search/album/?q=b&index=0&limit=100')
+    if(res.status === 200){
+      const albums  = res.data.data.map((element:any)=>({
         id:element.id,
         title:element.title,
         artist:element.artist.name,
+        artist_id:element.artist.id,
         songs:element.nb_tracks,
         link : element.link,
         cover:element.cover_medium
         
       }))
-      else throw res;
-  })
-  .catch(err=>console.error(err));
 
-
-
-  return {
-    props:{
-        albums
+      return {
+        props:{
+            albums 
+        }
+      }
+      
     }
+      else throw Error('error fetch');
+    
+    
   }
-}
+
+  
