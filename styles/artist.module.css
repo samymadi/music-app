@@ -1,0 +1,64 @@
+.container {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: var(--backgroundColor);
+    overflow-y: scroll;
+}
+
+.container::-webkit-scrollbar{
+    display: none;
+}
+
+
+.container img  {
+    border-radius: 4px;
+    margin: 25px;
+    width: 250px;
+    height: 250px;
+}
+
+.container h1 , .container p .container h2, .container h3 {
+    color :white;
+}
+
+.container p {
+    margin-left: 30px;
+    color: white;
+    font-weight: bold;
+}
+
+.artist_details {
+    display: flex;
+    /* background-color: aqua; */
+}
+
+
+.artist_content_details{
+    /* background-color: wheat; */
+    padding: 15px 5px;
+    height: fit-content;
+    align-self: center;
+}
+
+
+.data_container {
+    display: flex;
+    align-items: center;
+}
+
+
+.tracks_section h3 {
+    margin-left: 25px;
+}
+
+.list_container::-webkit-scrollbar{
+    width: 6px;
+}
+
+.list_container::-webkit-scrollbar-thumb{
+    background-color: rgb(211, 211, 211,0.5);
+    border-radius: 25px;
+}
