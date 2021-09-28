@@ -61,83 +61,83 @@ const Artist : NextPage<{artist:any | null,tracks:any | null}>  = ({artist,track
      const  {id,name,link,cover,nb_album,nb_fan} = artist
 
      const classes = useStyles();
-       
-     return    <Layout title='Music App | Daft Punk'>
-                <div className={container}>
-                   <section className={artist_details}>
 
-                     <img src={cover} alt={name} />
-                     <div className={artist_content_details}>  
-                            <h1>{name}</h1>
-                          
-                            <div className={data_container}>
-                                    <GroupIcon style={{color : 'white'}} ></GroupIcon>   
-                                 
-                                 <p> {nb_fan} fans </p>
-                            </div>
+return    <Layout title='Music App | Daft Punk'>
+    <div className={container}>
+        <section className={artist_details}>
 
-                            <div className={data_container}>
-                                
-                                    <AlbumIcon style={{color : 'white'}} ></AlbumIcon>   
+            <img src={cover} alt={name} />
+            <div className={artist_content_details}>  
+                <h1>{name}</h1>
+                
+                <div className={data_container}>
+                        <GroupIcon style={{color : 'white'}} ></GroupIcon>   
                         
-                                 <p>{nb_album} albums</p>
-                            </div>
-
-                            <Link href={`https://www.google.com/search?q=${name}`}>
-                                <a target='_blank'>
-                                    <Tooltip  title={`Search in google ${name}`} placement="bottom" arrow TransitionComponent={Zoom}>   
-                                    
-                                            <div className={data_container}>
-                                                            <LanguageIcon style={{color : 'white'}} ></LanguageIcon>  
-                                                            <p>About {name} </p>
-                                            </div>
-                                    
-                                    </Tooltip>
-                                </a>
-                            </Link> 
-                               
-                               
-                           
-                           
-                           
-                     </div>
-                   </section>
-
-                   <section className={tracks_section}>
-                        <h3>Top 5 tracks</h3>
-                        <List className={`${classes.listContainr} ${list_container}`}>
-                            {tracks && tracks.map(({id,title,duration,link:track_link}:{id:number,title:string,duration:number,link:string})=>
-                                       ( 
-                                           
-                                                <ListItem className={classes.itemContainer} divider key={id}>
-                                                    <ListItemIcon>
-                                                        <IconButton>
-                                                            <Link href={track_link}>
-                                                                <a target='_blank'>
-                                                                    <PlayCircleFilledIcon style={{color:'white'}} ></PlayCircleFilledIcon>
-                                                                </a>
-                                                            </Link>
-                                                        </IconButton>  
-                                                    </ListItemIcon>            
-                                                    <ListItemText  className={classes.root}>
-                                                        {title}
-                                                    </ListItemText> 
-                                                    <ListItemText style={{color:'lightgray'}}>
-                                                        <Typography style={{fontSize:'14px',fontFamily:"Cabin"}} component="p">
-                                                                {convertToMinute(duration)}
-                                                        </Typography>
-                                                    </ListItemText>     
-                                                </ListItem>
-                        
-                                         )
-                                    )
-                            }   
-                        </List>
-                    </section> 
-                   
-                    
+                        <p> {nb_fan} fans </p>
                 </div>
-        </Layout>
+
+                <div className={data_container}>
+                    
+                        <AlbumIcon style={{color : 'white'}} ></AlbumIcon>   
+            
+                        <p>{nb_album} albums</p>
+                </div>
+
+                <Link href={`https://www.google.com/search?q=${name}`}>
+                    <a target='_blank'>
+                        <Tooltip  title={`Search in google ${name}`} placement="bottom" arrow TransitionComponent={Zoom}>   
+                        
+                                <div className={data_container}>
+                                                <LanguageIcon style={{color : 'white'}} ></LanguageIcon>  
+                                                <p>About {name} </p>
+                                </div>
+                        
+                        </Tooltip>
+                    </a>
+                </Link> 
+                    
+                    
+                
+                
+                
+            </div>
+        </section>
+
+        <section className={tracks_section}>
+            <h3>Top 5 tracks</h3>
+            <List className={`${classes.listContainr} ${list_container}`}>
+                {tracks && tracks.map(({id,title,duration,link:track_link}:{id:number,title:string,duration:number,link:string})=>
+                            ( 
+                                
+                                    <ListItem className={classes.itemContainer} divider key={id}>
+                                        <ListItemIcon>
+                                            <IconButton>
+                                                <Link href={track_link}>
+                                                    <a target='_blank'>
+                                                        <PlayCircleFilledIcon style={{color:'white'}} ></PlayCircleFilledIcon>
+                                                    </a>
+                                                </Link>
+                                            </IconButton>  
+                                        </ListItemIcon>            
+                                        <ListItemText  className={classes.root}>
+                                            {title}
+                                        </ListItemText> 
+                                        <ListItemText style={{color:'lightgray'}}>
+                                            <Typography style={{fontSize:'14px',fontFamily:"Cabin"}} component="p">
+                                                    {convertToMinute(duration)}
+                                            </Typography>
+                                        </ListItemText>     
+                                    </ListItem>
+            
+                                )
+                        )
+                }   
+            </List>
+        </section> 
+        
+        
+    </div>
+</Layout>
 
 }
         

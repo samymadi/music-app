@@ -9,8 +9,9 @@ import axios from 'axios'
 
 //Styles 
 import styles from '../styles/Home.module.css';
+
 import MyApp from './_app';
-import { PropsWithChildren } from 'react';
+
 
 const {container,search_bar,album_section} = styles
 
@@ -31,11 +32,13 @@ const Home: NextPage<Props> = ({albums}) => {
         </header>
 
         <section className={album_section}>
-         { albums && albums.map((album:any)=>
-         <Album key={album.id} album={album} />
-         )}
+            { albums && albums.map((album:any)=>
+                   <Album key={album.id} album={album} />
+            )}
         </section>
-        <footer></footer>
+        <footer>
+
+        </footer>
     </Layout>
     
   )
@@ -47,10 +50,10 @@ export default Home
 
 
 
+
+
+
 export const getStaticProps  = async ()=>{
-
-
-
 
     const res = await axios.get('https://api.deezer.com/search/album/?q=b&index=0&limit=100')
     if(res.status === 200){
